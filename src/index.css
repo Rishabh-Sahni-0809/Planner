@@ -1,0 +1,152 @@
+/* ===== Design System: CSS Variables ===== */
+:root {
+  /* Fonts */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+  /* Colors — Dark Mode (default) */
+  --color-background-primary: #0f0f13;
+  --color-background-secondary: #1a1a24;
+  --color-background-tertiary: #222233;
+
+  --color-text-primary: #e8e8ef;
+  --color-text-secondary: #9d9db5;
+  --color-text-tertiary: #6b6b85;
+
+  --color-border-primary: #2a2a40;
+  --color-border-secondary: #232338;
+  --color-border-tertiary: #1e1e30;
+
+  --color-accent: #6366f1;
+  --color-accent-hover: #818cf8;
+}
+
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ===== Scrollbar Styling ===== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-primary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-tertiary);
+}
+
+/* ===== Selection ===== */
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* ===== Global Transitions ===== */
+button {
+  font-family: var(--font-sans);
+  transition: all 0.15s ease;
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* ===== Smooth Scroll ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== Navigation ===== */
+.app-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px;
+  margin: 16px auto 0;
+  max-width: 700px;
+  background: var(--color-background-secondary);
+  border-radius: 14px;
+  border: 0.5px solid var(--color-border-tertiary);
+}
+
+.app-nav button {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background: transparent;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.app-nav button:hover {
+  color: var(--color-text-primary);
+  background: var(--color-background-tertiary);
+  filter: none;
+}
+
+.app-nav button.active {
+  color: #fff;
+  background: var(--color-accent);
+  box-shadow: 0 2px 12px rgba(99, 102, 241, 0.3);
+  filter: none;
+}
+
+.app-nav button.active:hover {
+  background: var(--color-accent-hover);
+}
+
+/* ===== Page Fade-In Animation ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-container {
+  animation: fadeIn 0.3s ease;
+}
+
+/* ===== Import Google Font ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
